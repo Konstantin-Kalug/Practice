@@ -19,19 +19,19 @@ if (isset($_GET['id'])) {
 <?=template_header('Product')?>
 
 <div class="product content-wrapper">
-    <img src="imgs/<?=$product['img']?>" width="500" height="500" alt="<?=$product['name']?>">
+    <img src="<?=$product['img']?>" width="500" height="500" alt="<?=$product['name']?>">
     <div>
         <h1 class="name"><?=$product['name']?></h1>
         <span class="price">
-            &dollar;<?=$product['price']?>
+            <?=$product['price']?>₽
             <?php if ($product['rrp'] > 0): ?>
-            <span class="rrp">&dollar;<?=$product['rrp']?></span>
+            <span class="rrp"><?=$product['rrp']?>₽</span>
             <?php endif; ?>
         </span>
         <form action="index.php?page=cart" method="post">
             <input type="number" name="quantity" value="1" min="1" max="<?=$product['quantity']?>" placeholder="Quantity" required>
             <input type="hidden" name="product_id" value="<?=$product['id']?>">
-            <input type="submit" value="Add To Cart">
+            <input type="submit" value="Добавить в корзину">
         </form>
         <div class="description">
             <?=$product['desc']?>
